@@ -1,23 +1,17 @@
 <?php
-echo "hello";
+include_once 'db_util.php';
+echo "test";
 
-// Open the database file
-$db = new PDO('sqlite:mydatabase.db');
-highlight_file(__FILE__);
+if(isset($_GET["a"]) && isset($_GET["b"])) {
+    extract($_GET);
+    if (substr($a, 0, 2) !== "CS" || substr($b, 0, 2) !== "UI")
+        die("no CSUI no gain!");
+    if (md5($a) != md5($b))
+        die("Hasil md5-nya harus sama bang!");
 
-
-
-// Create the users table
-$db->exec('DROP TABLE IF EXISTS users;');
-$db->exec('CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT, password TEXT)');
-
-// Insert some data
-$db->exec("INSERT INTO users (name, email) VALUES ('John Smith', 'john@example.com')");
-
-// Retrieve the data
-$result = $db->query('SELECT * FROM users');
-
-// Display the data
-foreach ($result as $row) {
-    echo $row['name'] . ': ' . $row['email'] . '<br />';
+    echo $flag_yang_kalian_inginkan;
+} else {
+    highlight_file("db_util.php");
+    highlight_file(__FILE__);
 }
+?>

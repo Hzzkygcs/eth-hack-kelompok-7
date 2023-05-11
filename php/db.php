@@ -1,16 +1,19 @@
 <?php
-$servername = "mysql";
-$username = "root";
-$password = "example";
-$dbname = "user_db";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Open the database file
+$db = new PDO('sqlite:mydatabase.db');
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+
+
+// Create the users table
+$db->exec('DROP TABLE IF EXISTS users;');
+$db->exec('CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT, password TEXT)');
+
+
+// Retrieve the data
+$result = $db->query('SELECT * FROM users');
+
+// Display the data
+foreach ($result as $row) {
+    echo $row['username'] . ': ' . $row['password'] . '<br />';
 }
-
-$conn->close();
-?>

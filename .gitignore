@@ -2,4 +2,4 @@ mysql/
 .idea/
 **/*.iml
 **/*.xml
-
+**/*.db
