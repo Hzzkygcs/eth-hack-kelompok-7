@@ -21,9 +21,15 @@ if (!doesTableExist("sessions")){
 // Create the users table
 $db->exec('DROP TABLE IF EXISTS users;');
 $db->exec('CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT unique, password TEXT)');
-$db->exec('DROP TABLE IF EXISTS notes;');
-$db->exec('CREATE TABLE notes (id INTEGER PRIMARY KEY, username TEXT unique, note TEXT)');
 registerUser("valen", "mypassword_hvqplvqn");
 registerUser("user", "user");
+
+$db->exec('DROP TABLE IF EXISTS notes;');
+$db->exec('CREATE TABLE notes (id INTEGER PRIMARY KEY, username TEXT, note TEXT)');
+addNewNote("user", "Hello world!");
+addNewNote("user", "I do not have the flag, but I want one :(");
+addNewNote("valen", "CSCE604258{sql__cookies__hash___is_fun}");
+
+
 
 
