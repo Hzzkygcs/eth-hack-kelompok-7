@@ -40,6 +40,7 @@ valen_password_hashed = "0e855827688985529846921123252032"
 # in php, a hash fitting the regex '0+e[0-9]*$' will always be equal to one another
 # simply find a password that will have the hash of that regex
 
+print("This hash bruteforce isn't efficient, please be patient. :) (5 minutes+)")
 a = ""
 
 pattern = '0+e[0-9]*$'
