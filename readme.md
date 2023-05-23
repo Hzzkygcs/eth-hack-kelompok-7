@@ -12,3 +12,9 @@ Ethical Hacking 2023
     ```
     docker-compose up --build --detach
     ```
+---
+## Constraints
+- You're given the account:
+  - username: user
+  - password: user
+- No files are given.
